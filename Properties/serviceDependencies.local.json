@@ -3,6 +3,14 @@
     "mssql1": {
       "type": "mssql.local",
       "connectionId": "ConnectionStrings:PlantCareContext"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:IdentityContextConnection"
+    },
+    "mssql3": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:ApplicationDbContextConnection"
     }
   }
 }

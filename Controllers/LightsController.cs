@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,11 +12,12 @@ using PlantCareFramework.Models;
 
 namespace PlantCareFramework.Controllers
 {
+    [Authorize]
     public class LightsController : Controller
     {
-        private readonly PlantCareContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public LightsController(PlantCareContext context)
+        public LightsController(ApplicationDbContext context)
         {
             _context = context;
         }

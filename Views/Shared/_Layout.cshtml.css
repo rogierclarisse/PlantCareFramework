@@ -11,6 +11,15 @@ a {
   color: #0077cc;
 }
 
+.btn-done{
+    /*background-color: limegreen;
+    text-decoration: none;
+    border-color: limegreen;
+    border-radius: 25px;*/
+    color: lime;
+
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

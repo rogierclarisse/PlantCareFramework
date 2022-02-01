@@ -1,48 +1,54 @@
 ﻿@model PlantCareFramework.Models.Plant
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = @Localizer["Details"];
 }
 
-<h1>Details</h1>
+<h1>@Localizer["Details"]</h1>
 
 <div>
-    <h4>Plant</h4>
+    <h4>@Localizer["Plant"]</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            @Localizer["Plant Name"]
+@*            @Html.DisplayNameFor(model => model.Name)
+*@      </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WaterQuantity)
-        </dt>
+            @Localizer["Weekly Water Quantity"]
+@*            @Html.DisplayNameFor(model => model.WaterQuantity)
+*@      </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.WaterQuantity)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </dt>
+            @Localizer["Last Watering (date)"]
+@*            @Html.DisplayNameFor(model => model.CreationDate)
+*@        </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CreationDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Place)
-        </dt>
+            @Localizer["Placing"]
+@*            @Html.DisplayNameFor(model => model.Place)
+*@        </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Place.Id)
+            @Html.DisplayFor(model => model.Place.Location)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Light)
-        </dt>
+            @Localizer["Light Intensity"]
+@*            @Html.DisplayNameFor(model => model.Light)
+*@        </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Light.Id)
+            @Html.DisplayFor(model => model.Light.LightIntensity)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">@Localizer["Edit"]</a> |
+    <a asp-action="Index">@Localizer["Back to List"]</a>
 </div>

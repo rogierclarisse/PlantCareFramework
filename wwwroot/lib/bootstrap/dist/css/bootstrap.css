@@ -3117,6 +3117,12 @@ textarea.form-control-lg {
   background-color: #dc3545;
   border-color: #dc3545;
 }
+
+.btn-green {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+}
 .btn-danger:hover {
   color: #fff;
   background-color: #bb2d3b;
@@ -3253,8 +3259,8 @@ textarea.form-control-lg {
 }
 
 .btn-outline-success {
-  color: #198754;
-  border-color: #198754;
+    color: #198754;
+    border-color: #198754;
 }
 .btn-outline-success:hover {
   color: #fff;

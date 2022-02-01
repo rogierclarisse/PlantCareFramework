@@ -1,33 +1,50 @@
 ﻿@model IEnumerable<PlantCareFramework.Models.Plant>
+@using Microsoft.AspNetCore.Mvc.Localization
 
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = @Localizer["Index"];
 }
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PlantCareFramework.styles.css" asp-append-version="true" />
+</head>
 
-<h1>Index</h1>
+<h1>@Localizer["Plants"]</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">@Localizer["Add New Plant"]</a>
 </p>
+
+@*<p>
+    <form asp-action="index" asp-controller="Plants" method="get">
+        Filter Plantname:
+        <input type="text" name="searchField"/>
+
+    </form>
+</p>*@
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Localizer["Plant Name"]
+                @*@Html.DisplayNameFor(model => model.Name)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WaterQuantity)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.CreationDate)
-            </th>*@
+                @Localizer["Weekly Water Quantity"]
+@*                @Html.DisplayNameFor(model => model.WaterQuantity)
+*@            </th>
+           
             <th>
-                @Html.DisplayNameFor(model => model.Place.Location)
-            </th>
+                @Localizer["Placing"]
+@*                @Html.DisplayNameFor(model => model.Place.Location)
+*@            </th>
             <th>
-                @Html.DisplayNameFor(model => model.Light.LightIntensity)
-            </th>
-            <th></th>
+                @Localizer["Light Intensity"]
+@*                @Html.DisplayNameFor(model => model.Light.LightIntensity)
+*@            </th>
+           
+            
         </tr>
     </thead>
     <tbody>
@@ -39,19 +56,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.WaterQuantity)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.CreationDate)
-            </td>*@
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Place.Location)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Light.LightIntensity)
             </td>
+            
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["Edit"]</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">@Localizer["Details"]</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">@Localizer["Delete"]</a>
+                
             </td>
         </tr>
 }

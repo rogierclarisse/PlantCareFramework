@@ -1,0 +1,76 @@
+﻿@model IEnumerable<PlantCareFramework.Models.Plant>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = @Localizer["Task"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h1>@Localizer["To Do"]</h1>
+
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Localizer["Plant Name"]
+               @* @Html.DisplayNameFor(model => model.Name)*@
+            </th>
+            <th>
+                @Localizer["Weekly Water Quantity (ml)"]
+@*                @Html.DisplayNameFor(model => model.WaterQuantity)
+*@            </th>
+            <th>
+                @Localizer["Last Watering (date)"]
+@*                @Html.DisplayNameFor(model => model.CreationDate)
+*@            </th>
+            <th>
+                @Localizer["Necessary Watering (ml)"]
+@*                @Html.DisplayNameFor(model => model.WaterNeeded)
+*@            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Light)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.AppUser)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.Deleted)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+
+                
+                
+         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterQuantity)
+            
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterNeeded)
+            </td>
+            <td>
+               @* <button class="btn-done">*@
+                <a class="btn-done" asp-action="Done" asp-route-id="@item.Id">@Localizer["Done"]</a>
+               @* </button>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

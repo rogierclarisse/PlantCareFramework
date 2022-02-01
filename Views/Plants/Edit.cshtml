@@ -1,12 +1,13 @@
 ﻿@model PlantCareFramework.Models.Plant
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = @Localizer["Edit"];
 }
 
-<h1>Edit</h1>
+<h1>@Localizer["Edit"]</h1>
 
-<h4>Plant</h4>
+<h4>@Localizer["Plant"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -14,39 +15,39 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label class="control-label">@Localizer["Plant Name"]</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="WaterQuantity" class="control-label"></label>
+                <label class="control-label">@Localizer["Weekly Water Quantity (ml)"]</label>
                 <input asp-for="WaterQuantity" class="form-control" />
                 <span asp-validation-for="WaterQuantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreationDate" class="control-label"></label>
+                <label class="control-label">@Localizer["Last Watering (date)"]</label>
                 <input asp-for="CreationDate" class="form-control" />
                 <span asp-validation-for="CreationDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PlaceId" class="control-label"></label>
+                <label class="control-label">@Localizer["Placing"]</label>
                 <select asp-for="PlaceId" class="form-control" asp-items="ViewBag.PlaceId"></select>
                 <span asp-validation-for="PlaceId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LightId" class="control-label"></label>
+                <label class="control-label">@Localizer["Light Intensity"]</label>
                 <select asp-for="LightId" class="form-control" asp-items="ViewBag.LightId"></select>
                 <span asp-validation-for="LightId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value=@Localizer["Save"] class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">@Localizer["Back to List"]</a>
 </div>
 
 @section Scripts {
