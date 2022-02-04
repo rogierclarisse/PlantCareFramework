@@ -31,6 +31,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Plants" asp-action="Task">@Localizer["Tasks"]</a>
                         </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item btn-yellow">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">@Localizer["Users"]</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Login" xml:space="preserve">
-    <value>Connexion</value>
+  <data name="Add" xml:space="preserve">
+    <value>Voeg toe</value>
   </data>
-  <data name="Logout" xml:space="preserve">
-    <value>Se déconnecter</value>
+  <data name="Assign Role" xml:space="preserve">
+    <value>Rol Toevoegen</value>
   </data>
-  <data name="Register" xml:space="preserve">
-    <value>S'inscrire</value>
+  <data name="Role" xml:space="preserve">
+    <value>Rol</value>
   </data>
-  <data name="Users" xml:space="preserve">
-    <value>Utilisateurs</value>
+  <data name="User Id" xml:space="preserve">
+    <value>User Id</value>
   </data>
 </root>

@@ -5,7 +5,10 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@if (TempData["message"] != null)
+{
+    <script>alert('@TempData["message"]');</script>
+}
 <h1>@Localizer["All users"]</h1>
 
 
@@ -29,6 +32,9 @@
             </th>
             <th>
                 @Localizer["Access status"]
+            </th>
+            <th>
+                @Localizer["Assign role"]
             </th>
         </tr>
     </thead>
@@ -60,7 +66,11 @@
                         <a asp-action="Block" asp-route-id="@item.Id">@Localizer["Blocked"]</a>
                     }
                 </td>
+                <td>
+                    <a asp-action="UserRoles" asp-route-id="@item.Id">@Localizer["AddToRole"]</a>
+                </td>
         </tr>
+
 }
     </tbody>
 </table>

@@ -42,8 +42,8 @@ namespace GroupSpace.Controllers
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
                 new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) });
 
-           if (_user.Id != "-")
-            
+            if (_user.Id != "-")
+
             {
                 _user.LanguageId = id;
                 Language language = _context.Language.FirstOrDefault(l => l.Id == id);

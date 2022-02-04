@@ -1,0 +1,41 @@
+﻿@model PlantCareFramework.ViewModels.UserRoleViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h3>@Localizer["Assign Role"]</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddUserToRole">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">@Localizer["User Id"]</label>
+                <input asp-for="UserId" class="form-control" readonly="@(true)"/>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@Localizer["Role"]</label><br />
+
+                <select name="RoleNames">
+                @foreach (var item in Model.RoleNames)
+                {
+                    
+                   <option asp-for="RoleNames" value="@item">@item</option>  
+                }
+                </select>
+                <span asp-validation-for="RoleNames" class="text-danger"></span>
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value=@Localizer["Add"] class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

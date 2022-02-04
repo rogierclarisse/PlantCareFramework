@@ -120,8 +120,14 @@
   <data name="Access status" xml:space="preserve">
     <value>Toegangsstatus </value>
   </data>
+  <data name="AddToRole" xml:space="preserve">
+    <value>RolToewijzing</value>
+  </data>
   <data name="All users" xml:space="preserve">
     <value>Alle gebruikers</value>
+  </data>
+  <data name="Assign role" xml:space="preserve">
+    <value>Rol toewijzen</value>
   </data>
   <data name="Blocked" xml:space="preserve">
     <value>Geblokkeerd</value>

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace PlantCareFramework.Controllers
 {
-    [Authorize]
+    [Authorize (Roles = "Admin")]
     public class UsersController : Controller
     {
         //private ApplicationUser _appuser;
@@ -36,15 +36,58 @@ namespace PlantCareFramework.Controllers
         }
     
        
-
-        public IActionResult UserRoles()
+        [HttpGet]
+        public async Task<IActionResult> UserRoles(string id)
         {
+            var user = await _userManager.FindByIdAsync(id);
+
+            UserRoleViewModel model = new UserRoleViewModel
+            {
+                UserId = user.Id,
+                RoleNames = new List<string> {}
+            };
+
+            foreach(var role in _roleManager.Roles)
+            {
+                model.RoleNames.Add(role.Name);
+            }
+
             
            
-            return View();
+            return View(model);
         }
 
-        public async Task<IActionResult> Block(string? id)
+        [HttpPost]
+        public async Task<IActionResult> AddUserToRole(UserRoleViewModel model)
+        {
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            var userid = model.UserId;
+            
+            var roleid = model.RoleNames[0];
+
+
+            if (!await _userManager.IsInRoleAsync(user, roleid))
+            {
+                _context.UserRoles.Add(new IdentityUserRole<string>
+                {
+                    UserId = userid,
+                    RoleId = roleid.ToString()
+                });
+
+                _context.SaveChanges();
+                TempData["message"]= user.UserName+" was assigned the "+roleid+" role";
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                TempData["message"] = user.UserName + " was already assigned the " + roleid + " role";
+                return RedirectToAction(nameof(Index));
+            }
+
+            
+        }
+
+            public async Task<IActionResult> Block(string? id)
         {
             if(id == null)
             {
