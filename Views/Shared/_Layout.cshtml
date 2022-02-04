@@ -22,9 +22,9 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
-                        </li>
+                        </li>*@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Plants" asp-action="Index">@Localizer["Plants"]</a>
                         </li>
@@ -53,7 +53,10 @@
             @RenderBody()
         </main>
     </div>
-
+    <div class="container">
+  <main role="main" class="pb-3">@RenderBody()</main>
+  <partial name="_CookieConsentPartial" />
+</div>
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - PlantCareFramework - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

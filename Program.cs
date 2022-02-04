@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using PlantCareFramework.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc.Razor;
 using PlantCareFramework.Models;
+using Microsoft.AspNetCore.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,11 @@ builder.Services.AddMvc()
 builder.Services.AddLocalization(option => option.ResourcesPath = "Localizing");
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.Configure<CookiePolicyOptions>(options => {
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.Strict;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -40,7 +46,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 app.UseStaticFiles();
-
+app.UseCookiePolicy();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

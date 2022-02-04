@@ -43,16 +43,6 @@ namespace PlantCareFramework.Data
 
                 if (!context.Users.Any())
                 {
-                    //user = new ApplicationUser
-                    //{
-                    //    FirstName = "User",
-                    //    LastName = "User",
-                    //    UserName = "User",
-                    //    Email = "user@user.be",
-                    //    EmailConfirmed = true
-                    //};
-                    // userManager.CreateAsync(user, "User1234!");
-
                     admin = new ApplicationUser
                     {
                         FirstName = "Admin",
@@ -62,7 +52,7 @@ namespace PlantCareFramework.Data
                         EmailConfirmed = true,
                         LanguageId = "en"
                     };
-                     userManager.CreateAsync(admin, "Admin1234!");
+                     userManager.CreateAsync(admin, "Student+1");
                 }
 
 
@@ -92,10 +82,12 @@ namespace PlantCareFramework.Data
                 if (!context.Plant.Any())
                 {
                     context.Plant.AddRange(
-                        new Plant { Name = "Monstera", WaterQuantity = 200, LightId = 'M', PlaceId = 'I', AppUserId = admin.Id},
-                        new Plant { Name = "Sanseveria", WaterQuantity = 10, LightId = 'N', PlaceId = 'I', AppUserId = admin.Id },
-                        new Plant { Name = "Pannekoek Plant", WaterQuantity = 50, LightId = 'M', PlaceId = 'I', AppUserId = admin.Id },
-                        new Plant { Name = "Olijfboom", WaterQuantity = 300, LightId = 'F', PlaceId = 'O', AppUserId = admin.Id }
+                        new Plant { Name = "Monstera", WaterQuantity = 200, LightId = 'M', PlaceId = 'I', CreationDate=new DateTime(2021, 12, 26), AppUserId = admin.Id},
+                        new Plant { Name = "Sanseveria", WaterQuantity = 10, LightId = 'N', PlaceId = 'I', CreationDate = new DateTime(2022, 01, 26), AppUserId = admin.Id },
+                        new Plant { Name = "Pannekoek Plant", WaterQuantity = 50, LightId = 'M', PlaceId = 'I', CreationDate = new DateTime(2022,01,31), AppUserId = admin.Id },
+                        new Plant { Name = "Olijfboom", WaterQuantity = 300, LightId = 'F', PlaceId = 'O', CreationDate = new DateTime(2022, 01, 21), AppUserId = admin.Id },
+                         new Plant { Name = "Areca", WaterQuantity = 200, LightId = 'F', PlaceId = 'I', CreationDate = new DateTime(2022, 01, 21), AppUserId = admin.Id },
+                          new Plant { Name = "Strelitzia", WaterQuantity = 150, LightId = 'M', PlaceId = 'I', CreationDate = new DateTime(2022, 01, 21), AppUserId = admin.Id }
                         );
                     context.SaveChanges();
                 }
